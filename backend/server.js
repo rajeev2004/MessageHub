@@ -1,17 +1,23 @@
-import { timeStamp } from "console";
 import express from "express";
 import http from "http";
 import { Server } from "socket.io";
+import cors from "cors";
+import { socketAuth } from "./middleware/authenticate.js";
+import route from "./routes/route.js";
 const rooms={};
 const users={};
 const messages={};
 const app=express();
+app.use(cors());
+app.use(express.json());
+app.use("/api",route);
 const server=http.createServer(app);
 const io=new Server(server,{
     cors:{
         origin:'*'
     }
 });
+io.use(socketAuth);
 io.on("connection",(socket)=>{
     console.log("connection established",socket.id);
     socket.on("joinRoom",({username,room})=>{

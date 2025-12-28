@@ -13,11 +13,16 @@ function JoinRoom(props){
             alert("Enter form details")
         }
     }
+    function logout(){
+        localStorage.removeItem("token");
+        window.location.reload();
+    }
     return (
         <form onSubmit={joinRoomFunction}>
             <input type="text" value={username} placeholder="Enter username" onChange={(e)=>setUsername(e.target.value)} required/>
             <input type="text" value={room} placeholder="Enter room" onChange={(e)=>setRoom(e.target.value)} required/>
             <button type="submit">JOIN ROOM</button>
+            <button onClick={logout}>Logout</button>
         </form>
     )
    
