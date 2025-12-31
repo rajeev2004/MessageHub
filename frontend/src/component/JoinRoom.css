@@ -1,0 +1,102 @@
+/* Base reset */
+* {
+    box-sizing: border-box;
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Center page */
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Join Room card */
+form {
+    width: 100%;
+    max-width: 360px;
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 14px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+    animation: fadeUp 0.5s ease;
+}
+
+/* Inputs */
+form input {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 0.95rem;
+    transition: border 0.25s ease, box-shadow 0.25s ease;
+}
+
+form input::placeholder {
+    color: #aaa;
+}
+
+form input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+}
+
+/* Buttons wrapper */
+form button {
+    width: 100%;
+    padding: 0.9rem;
+    border-radius: 8px;
+    border: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+/* Join button */
+form button[type="submit"] {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #ffffff;
+    margin-top: 0.5rem;
+}
+
+form button[type="submit"]:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.35);
+}
+
+/* Logout button */
+form button:not([type="submit"]) {
+    background: transparent;
+    color: #d32f2f;
+    border: 1px solid #f0c5c5;
+    margin-top: 0.8rem;
+}
+
+form button:not([type="submit"]):hover {
+    background: #fff5f5;
+}
+
+/* Animation */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile */
+@media (max-width: 420px) {
+    form {
+        padding: 1.6rem;
+    }
+}

@@ -1,0 +1,131 @@
+/* Global reset */
+* {
+    box-sizing: border-box;
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Centered background */
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Auth card */
+form {
+    width: 100%;
+    max-width: 380px;
+    background: #ffffff;
+    padding: 2.2rem;
+    border-radius: 14px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.15);
+    animation: slideFade 0.6s ease;
+}
+
+/* Title */
+form h2 {
+    text-align: center;
+    margin-bottom: 1.7rem;
+    font-size: 1.9rem;
+    color: #1f1f1f;
+    font-weight: 700;
+}
+
+/* Inputs */
+form input {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 0.95rem;
+    transition: border 0.25s ease, box-shadow 0.25s ease;
+}
+
+form input::placeholder {
+    color: #aaa;
+}
+
+form input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+}
+
+/* Error text */
+form p {
+    margin: 0.35rem 0;
+    font-size: 0.9rem;
+}
+
+/* Primary button */
+form button[type="submit"] {
+    width: 100%;
+    padding: 0.9rem;
+    margin-top: 0.6rem;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+form button[type="submit"]:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 22px rgba(102, 126, 234, 0.35);
+}
+
+form button[type="submit"]:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+/* Switch auth link */
+form p:last-child {
+    text-align: center;
+    margin-top: 1.3rem;
+    color: #555;
+}
+
+/* Secondary link button */
+form p button {
+    background: none;
+    border: none;
+    color: #667eea;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+}
+
+form p button:hover {
+    text-decoration: underline;
+}
+
+/* Animation */
+@keyframes slideFade {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 420px) {
+    form {
+        padding: 1.8rem;
+    }
+
+    form h2 {
+        font-size: 1.6rem;
+    }
+}

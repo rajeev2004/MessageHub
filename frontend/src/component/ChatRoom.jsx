@@ -1,5 +1,6 @@
 import react,{useState,useEffect,useRef} from "react";
 import socket from "../socket";
+import "./ChatRoom.css";
 function ChatRoom(props){
     const typingTimeoutRef=useRef(null);
     const messageEndRef=useRef(null);
@@ -62,9 +63,9 @@ function ChatRoom(props){
     }, 1500);
 }
     return (
-        <div style={{ display:"flex",height:"100vh" }}>
+        <div className="chat-container" style={{ display:"flex",height:"100vh" }}>
             {/* USERS LIST */}
-            <div style={{ width: "200px", borderRight: "1px solid #ccc", padding: "10px" }}>
+            <div className="users-panel" style={{ width: "200px", borderRight: "1px solid #ccc", padding: "10px" }}>
                 <h4>Users</h4>
                 <ul>
                     {users.map((user, index) => (
@@ -73,18 +74,18 @@ function ChatRoom(props){
                 </ul>
             </div>
             {/* CHAT AREA */}
-            <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
-                <div style={{ flex: 1, padding: "10px", overflowY: "auto" }}>
+            <div className="chat-area" style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+                <div className="messages" style={{ flex: 1, padding: "10px", overflowY: "auto" }}>
                     {messages.map((msg, index) => {
                         if (msg.type === "system") {
                             return (
-                                <div key={index} style={{ color: "#888", fontStyle: "italic" }}>
+                                <div className="system-message" key={index} style={{ color: "#888", fontStyle: "italic" }}>
                                     {msg.text} - {new Date(msg.timeStamp).toLocaleString()}
                                 </div>
                             );
                         }
                         return (
-                            <div key={index}>
+                            <div className="message" key={index}>
                                 <strong>{msg.username}:</strong> {msg.text} - {new Date(msg.timeStamp).toLocaleString()}
                             </div>
                         );
@@ -92,7 +93,7 @@ function ChatRoom(props){
                     <div ref={messageEndRef}></div>
                 </div>
                 {/* MESSAGE INPUT */}
-                <div style={{ display: "flex", padding: "10px", borderTop: "1px solid #ccc" }}>
+                <div className="message-input" style={{ display: "flex", padding: "10px", borderTop: "1px solid #ccc" }}>
                     <input
                         type="text"
                         value={currentMessage}
@@ -112,12 +113,12 @@ function ChatRoom(props){
                     return null;
                 }
                  return (
-                    <div key={user} style={{ fontStyle: "italic", color: "#666" }}>
+                    <div className="typing-indicator" key={user} style={{ fontStyle: "italic", color: "#666" }}>
                         {user} is typing...
                     </div>
                 );
             })}
-            <button type="submit" onClick={props.onLeave}>Leave Room</button>
+            <button className="leave-btn" type="submit" onClick={props.onLeave}>Leave Room</button>
         </div>
     );
 }

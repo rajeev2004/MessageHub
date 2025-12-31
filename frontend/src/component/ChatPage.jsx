@@ -2,6 +2,7 @@ import socket,{connectSocket} from "../socket";
 import { useState } from "react";
 import JoinRoom from "./JoinRoom";
 import ChatRoom from "./ChatRoom";
+import "./Chatpage.css";
 function ChatPage() {
   const [joined, setJoined] = useState(false);
   const [username, setUsername] = useState("");
@@ -22,10 +23,14 @@ function ChatPage() {
     setJoined(false);
   }
 
-  return !joined ? (
-    <JoinRoom onJoin={onJoin} />
-  ) : (
-    <ChatRoom onLeave={leaveRoom} />
+  return (
+    <div className="chat-page">
+      {!joined ? (
+        <JoinRoom onJoin={onJoin} />
+      ) : (
+        <ChatRoom onLeave={leaveRoom} />
+      )}
+    </div>
   );
 }
 export default ChatPage;

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
+import "./Register.css";
 function Register({setToken}) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
