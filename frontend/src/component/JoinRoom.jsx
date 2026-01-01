@@ -1,6 +1,8 @@
 import react,{useState} from "react";
+import { useNavigate } from "react-router";
 import "./JoinRoom.css";
 function JoinRoom(props){
+    const navigate=useNavigate();
     const [username,setUsername]=useState("");
     const [room,setRoom]=useState("");
     // function handleChange(e){
@@ -16,7 +18,7 @@ function JoinRoom(props){
     }
     function logout(){
         localStorage.removeItem("token");
-        window.location.reload();
+        navigate("/login");
     }
     return (
         <form onSubmit={joinRoomFunction}>
