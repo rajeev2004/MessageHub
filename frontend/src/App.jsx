@@ -19,7 +19,7 @@ function App() {
         </>
       ) : (
         <>
-          <Route path="/chat" element={<ChatPage />} />
+          <Route path="/chat" element={<ChatPage setToken={setToken} />} />
           <Route path="*" element={<ChatPage />} />
         </>
       )}

@@ -3,7 +3,7 @@ import { useState } from "react";
 import JoinRoom from "./JoinRoom";
 import ChatRoom from "./ChatRoom";
 import "./Chatpage.css";
-function ChatPage() {
+function ChatPage({setToken}) {
   const [joined, setJoined] = useState(false);
   const [username, setUsername] = useState("");
   const [room, setRoom] = useState("");
@@ -26,7 +26,7 @@ function ChatPage() {
   return (
     <div className="chat-page">
       {!joined ? (
-        <JoinRoom onJoin={onJoin} />
+        <JoinRoom onJoin={onJoin} setToken={setToken} />
       ) : (
         <ChatRoom onLeave={leaveRoom} />
       )}

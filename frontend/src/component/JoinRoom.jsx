@@ -18,6 +18,7 @@ function JoinRoom(props){
     }
     function logout(){
         localStorage.removeItem("token");
+        props.setToken(null);
         navigate("/login");
     }
     return (
