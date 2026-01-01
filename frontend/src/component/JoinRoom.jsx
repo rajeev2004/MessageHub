@@ -1,5 +1,5 @@
 import react,{useState} from "react";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import "./JoinRoom.css";
 function JoinRoom(props){
     const navigate=useNavigate();
@@ -25,7 +25,7 @@ function JoinRoom(props){
             <input type="text" value={username} placeholder="Enter username" onChange={(e)=>setUsername(e.target.value)} required/>
             <input type="text" value={room} placeholder="Enter room" onChange={(e)=>setRoom(e.target.value)} required/>
             <button type="submit">JOIN ROOM</button>
-            <button onClick={logout}>Logout</button>
+            <button type="button" onClick={logout}>Logout</button>
         </form>
     )
    
