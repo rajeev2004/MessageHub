@@ -1,9 +1,9 @@
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
-import { BrowserRouter } from 'react-router'
+import { BrowserRouter,HashRouter } from 'react-router'
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
+  <HashRouter>
     <App />
-  </BrowserRouter>
+  </HashRouter>
 
 )
