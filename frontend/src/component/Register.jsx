@@ -18,7 +18,7 @@ function Register({setToken}) {
         setLoading(true);
 
         try {
-            const res = await axios.post("http://localhost:3000/api/register",{ username, password });
+            const res = await axios.post("https://messagehub-ys5t.onrender.com/api/register",{ username, password });
             localStorage.setItem("token", res.data.token);
             setToken(res.data.token);
             navigate("/chat");
